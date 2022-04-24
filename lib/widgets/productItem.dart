@@ -43,7 +43,6 @@ class ProductItem extends StatelessWidget {
             title: Text(
               currentProduct.title,
               textAlign: TextAlign.center,
-              // style: const TextStyle(fontSize: 15),
             ),
             trailing: IconButton(
               icon: const Icon(
@@ -54,6 +53,21 @@ class ProductItem extends StatelessWidget {
               onPressed: () {
                 cart.addItem(currentProduct.id, currentProduct.title,
                     currentProduct.price);
+                ScaffoldMessenger.of(context).hideCurrentSnackBar();
+                ScaffoldMessenger.of(context).showSnackBar(
+                  SnackBar(
+                    content: const Text(
+                      'Added item to cart!',
+                      textAlign: TextAlign.center,
+                    ),
+                    duration: const Duration(seconds: 2),
+                    action: SnackBarAction(
+                        label: 'UNDO',
+                        onPressed: () {
+                          cart.removeSingleItem(currentProduct.id);
+                        }),
+                  ),
+                );
               },
             ),
           ),
