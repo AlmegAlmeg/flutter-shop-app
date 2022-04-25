@@ -6,6 +6,8 @@ import '../widgets/userProductItem.dart';
 
 import '../providers/products.dart';
 
+import '../screens/editProductScreen.dart';
+
 class UserProductsScreen extends StatelessWidget {
   static const routeName = '/user-products';
   @override
@@ -14,7 +16,13 @@ class UserProductsScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Your products'),
-        actions: [IconButton(onPressed: () {}, icon: const Icon(Icons.add))],
+        actions: [
+          IconButton(
+              onPressed: () {
+                Navigator.of(context).pushNamed(EditProductScreen.routeName);
+              },
+              icon: const Icon(Icons.add))
+        ],
       ),
       drawer: AppDrawer(),
       body: Padding(
