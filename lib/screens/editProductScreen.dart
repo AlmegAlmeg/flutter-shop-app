@@ -82,7 +82,7 @@ class _EditProductScreenState extends State<EditProductScreen> {
       Provider.of<Products>(context, listen: false)
           .updateProduct(_editedProduct.id, _editedProduct)
           .catchError((err) {
-        return showDialog<Null>(
+        return showDialog<void>(
           context: context,
           builder: (ctx) => AlertDialog(
             title: const Text('Ohh... Something went wrong...'),
@@ -107,7 +107,7 @@ class _EditProductScreenState extends State<EditProductScreen> {
       Provider.of<Products>(context, listen: false)
           .addProduct(_editedProduct)
           .catchError((err) {
-        return showDialog<Null>(
+        return showDialog<void>(
           context: context,
           builder: (ctx) => AlertDialog(
             title: const Text('Ohh... Something went wrong...'),

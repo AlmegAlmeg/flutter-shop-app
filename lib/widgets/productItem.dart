@@ -2,16 +2,17 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import '../providers/cart.dart';
-import '../providers/products.dart';
+// import '../providers/products.dart';
 import '../providers/product.dart';
 import '../screens/productDetailScreen.dart';
 
 class ProductItem extends StatelessWidget {
+  const ProductItem({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     final cart = Provider.of<Cart>(context, listen: false);
-    final products = Provider.of<Products>(context).items;
-    print(products);
+    // final products = Provider.of<Products>(context).items;
     return Consumer<Product>(
       builder: (ctx, currentProduct, child) => ClipRRect(
         borderRadius: const BorderRadius.all(Radius.circular(20)),

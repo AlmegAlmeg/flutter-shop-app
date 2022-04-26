@@ -10,7 +10,8 @@ class CartItem extends StatelessWidget {
   final int quantity;
   final String title;
 
-  CartItem(this.id, this.productId, this.price, this.quantity, this.title);
+  const CartItem(
+      this.id, this.productId, this.price, this.quantity, this.title);
 
   @override
   Widget build(BuildContext context) {
@@ -29,12 +30,12 @@ class CartItem extends StatelessWidget {
                   onPressed: () {
                     Navigator.of(ctx).pop(true);
                   },
-                  child: Text('Yes')),
+                  child: const Text('Yes')),
               TextButton(
                   onPressed: () {
                     Navigator.of(ctx).pop(false);
                   },
-                  child: Text('No')),
+                  child: const Text('No')),
             ],
           ),
         );
@@ -64,7 +65,7 @@ class CartItem extends StatelessWidget {
               child: FittedBox(child: Text('\$$price')),
             )),
             title: Text(title),
-            subtitle: Text('Total: \$${price * quantity}'),
+            subtitle: Text('Total: \$${(price * quantity).toStringAsFixed(2)}'),
             trailing: Text('$quantity x'),
           ),
         ),
