@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import '../providers/cart.dart';
+import '../providers/products.dart';
 import '../providers/product.dart';
 import '../screens/productDetailScreen.dart';
 
@@ -9,7 +10,8 @@ class ProductItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final cart = Provider.of<Cart>(context, listen: false);
-    // final currentProduct = Provider.of<Product>(context);
+    final products = Provider.of<Products>(context).items;
+    print(products);
     return Consumer<Product>(
       builder: (ctx, currentProduct, child) => ClipRRect(
         borderRadius: const BorderRadius.all(Radius.circular(20)),
